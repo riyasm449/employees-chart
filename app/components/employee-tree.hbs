@@ -1,0 +1,24 @@
+<div class="employee-tree">
+  <ul>
+    {{#each this.sortedEmployees as |node|}}
+      <li>
+        <div
+          draggable="true"
+          {{on "dragstart" (fn this.handleDragStart node)}}
+          {{on "dragover" this.handleDragOver}}
+          {{on "drop" (fn this.handleDrop node)}}
+          class="employee-card"
+        >
+          <div class="title">{{node.employee.name}}</div>
+          <div class="description">
+            <div>{{node.employee.role}}</div> 
+            <div>{{node.employee.team}}</div>
+          </div>
+        </div>
+        {{#if node.children.length}}
+          <EmployeeTree @employees={{node.children}} @norerender={{true}} @callbacks={{this.args.callbacks}}/>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</div>  

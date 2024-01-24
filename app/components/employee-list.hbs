@@ -1,0 +1,28 @@
+ <div class="employee-list-component">
+    <input type="text" value={{this.searchQuery}} {{on "input" this.updateSearchQuery}} placeholder="Search by Name">
+    <select {{on "change" (action "updateSelectedTeam" value="target.value")}}>
+    {{#each this.teamFilterOptions as |team|}}
+        <option value={{team}}>{{team}}</option>
+    {{/each}}
+    </select>
+    <EmberTable class="ember-table" as |t|>
+        <t.head @columns={{this.columns}} @sorts={{this.sorts}} @onUpdateSorts={{action (mut this.sorts)}} @widthConstraint='eq-container' class="ember-table-header" as |h|>
+            <h.row as |r|>
+                <r.cell class="ember-table-header-cell" as |column columnMeta|>
+                    {{column.name}}
+                </r.cell>
+            </h.row>
+        </t.head>
+        {{#if this.employees}}
+            <t.body class="ember-table-body" @rows={{this.employees}} as |b|>
+                <b.row class="ember-table-row" as |r|>
+                    <r.cell class="ember-table-body-cell" as |value|>
+                        {{value}}
+                    </r.cell>
+                </b.row>
+            </t.body>
+        {{else}}
+            No data
+        {{/if}}
+    </EmberTable>
+</div>

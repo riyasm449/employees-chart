@@ -1,0 +1,11 @@
+{{#if this.sortedEmployee}}
+<div class="employee-tree-wrapper">
+    <EmployeeTree 
+        @employees={{this.sortedEmployee}} 
+        @callbacks={{hash 
+            dragElementHandler=(action "dragElementHandler" ) 
+            dropElementHandler=(action "dropElementHandler" ) 
+        }} 
+    />
+</div>
+{{/if}}

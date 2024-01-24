@@ -1,51 +1,40 @@
-# employee-organization-chart
+# Employee Organization Tree
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+* The review build is hosted at [Netlify](https://beautiful-jelly-b89dc4.netlify.app/).
+
+* **Tech Stack:**
+  - Backend: Firebase
+  - Frontend: Ember.js
+
+## Basic Overview
+
+- Employees list is displayed on the left:
+  - Options available in the list: Sort, Search by Name, Filter by Team
+
+- Employees Organization tree is displayed on the left:
+  - Drag and Drop Employee will update the Manager
+  - Changes will be reflected in the UI only, not updated in the backend.
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://cli.emberjs.com/release/)
-* [Google Chrome](https://google.com/chrome/)
+ember-cli: 4.12.2
+node: 14.21.3
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/riyasm449/employees-chart.git` this repository
 * `cd employee-organization-chart`
 * `npm install`
 
 ## Running / Development
 
-* `ember serve`
+* `ember serve` or `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint`
-* `npm run lint:fix`
 
 ### Building
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 

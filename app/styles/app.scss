@@ -70,6 +70,7 @@ select {
         align-items: flex-start;
         width: fit-content;
         min-width: 150px;
+        position: relative;
     }
 
     .employee-tree ul {
@@ -82,4 +83,20 @@ select {
     .employee-tree li {
         margin-right: 20px;
     }
+
+    .employee-line {
+        position: absolute;
+        top: 50%; /* Position the line in the middle of the node */
+        left: calc(100% + 10px); /* Adjust the starting position of the line */
+        width: 20px; /* Adjust the length of the line */
+        height: 1px; /* Line thickness */
+        background-color: #000; /* Line color */
+      }
 }
+
+g {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust spacing between nodes */
+  }

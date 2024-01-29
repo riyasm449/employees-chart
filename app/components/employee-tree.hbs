@@ -1,4 +1,4 @@
-<div class="employee-tree">
+{{!-- <div class="employee-tree">
   <ul>
     {{#each this.sortedEmployees as |node|}}
       <li>
@@ -17,8 +17,27 @@
         </div>
         {{#if node.children.length}}
           <EmployeeTree @employees={{node.children}} @norerender={{true}} @callbacks={{this.args.callbacks}}/>
+          <div class="employee-line"></div>
         {{/if}}
       </li>
     {{/each}}
   </ul>
-</div>  
+</div>   --}}
+
+<!-- app/components/employee-tree.hbs -->
+<svg class="employee-tree">
+  <g>
+    {{#each this.sortedEmployees as |node|}}
+      <g transform={{concat "translate(" (multiply 220 node.level) ",0)"}}>
+        <circle cx="10" cy="30" r="10" fill="#ffffff" stroke="#000000" />
+        <line x1="20" y1="30" x2="40" y2="30" stroke="#000000" />
+        <circle cx="50" cy="30" r="10" fill="#ffffff" stroke="#000000" />
+        <text x="25" y="35" text-anchor="middle">{{node.employee.name}}</text>
+        {{#if node.children.length}}
+          <line x1="60" y1="30" x2="70" y2="30" stroke="#000000" />
+          <EmployeeTree @employees={{node.children}} @norerender={{true}} @callbacks={{this.args.callbacks}}/>
+        {{/if}}
+      </g>
+    {{/each}}
+  </g>
+</svg>
